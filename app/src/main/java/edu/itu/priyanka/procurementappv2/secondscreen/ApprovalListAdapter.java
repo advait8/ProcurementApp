@@ -1,12 +1,18 @@
 package edu.itu.priyanka.procurementappv2.secondscreen;
 
 import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.itu.priyanka.procurementappv2.R;
+import edu.itu.priyanka.procurementappv2.thirdscreen.ThirdActivity;
 
 public class ApprovalListAdapter extends BaseAdapter {
     private List<ApprovalItemModel> approvalItemModelList = new ArrayList<>();
@@ -15,6 +21,21 @@ public class ApprovalListAdapter extends BaseAdapter {
 
     public ApprovalListAdapter(Context context) {
         this.context = context;
+        setupApprovalList();
+    }
+
+    private void setupApprovalList() {
+        ApprovalItemModel approvalItemModel1 = new ApprovalItemModel("n100001", "2450", "05-16-2018", "$ USD", "Best Company", "High");
+        ApprovalItemModel approvalItemModel2 = new ApprovalItemModel("n100002", "560", "02-12-2018", "$ USD", "Best Company", "High");
+        ApprovalItemModel approvalItemModel3 = new ApprovalItemModel("n100003", "2100", "10-16-2017", "$ USD", "Best Company", "High");
+        ApprovalItemModel approvalItemModel4 = new ApprovalItemModel("n100004", "2090", "05-13-2017", "$ USD", "Best Company", "High");
+        ApprovalItemModel approvalItemModel5 = new ApprovalItemModel("n100005", "5640", "02-17-2017", "$ USD", "Best Company", "High");
+
+        approvalItemModelList.add(approvalItemModel1);
+        approvalItemModelList.add(approvalItemModel2);
+        approvalItemModelList.add(approvalItemModel3);
+        approvalItemModelList.add(approvalItemModel4);
+        approvalItemModelList.add(approvalItemModel5);
     }
 
     @Override
@@ -34,6 +55,36 @@ public class ApprovalListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        View listItem = convertView;
+        if (listItem == null)
+            listItem = LayoutInflater.from(context).inflate(R.layout.approval_item, parent, false);
+        TextView approvalNumberTextView  = listItem.findViewById(R.id.approvalId);
+        TextView amount = listItem.findViewById(R.id.amount);
+        TextView approvalDate  = listItem.findViewById(R.id.approvalDate);
+        TextView approvalCurrency  = listItem.findViewById(R.id.approvalCurrency);
+        TextView approvalCompanyName  = listItem.findViewById(R.id.approvalCompanyName);
+        TextView approvalPriorityStatus  = listItem.findViewById(R.id.approvalPriorityStatus);
+        TextView pastDueStatus  = listItem.findViewById(R.id.pastDueStatus);
+
+
+        final ApprovalItemModel model = approvalItemModelList.get(position);
+        amount.setText(model.getApprovalAmount());
+        approvalNumberTextView.setText(model.getApprovalId());
+        approvalDate.setText(model.getApprovalDate());
+        approvalCurrency.setText(model.getApprovalCurrency());
+        approvalCompanyName.setText(model.getApprovalCompany());
+        approvalPriorityStatus.setText(model.getApprovalPriority());
+        pastDueStatus.setText("Priority : High");
+
+        listItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ThirdActivity.class);
+                intent.putExtra("ApprovalModel",model);
+                context.startActivity(intent);
+            }
+        });
+
+        return listItem;
     }
 }

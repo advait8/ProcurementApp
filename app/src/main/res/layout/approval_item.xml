@@ -13,7 +13,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -22,7 +22,7 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/approvalDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -31,15 +31,15 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/approvalCurrency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignTop="@+id/textView3"
+        android:layout_alignStart="@+id/amount"
+        android:layout_alignTop="@+id/approvalDate"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/approvalCompanyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -48,15 +48,15 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/pastDueStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignTop="@+id/textView5"
+        android:layout_alignStart="@+id/amount"
+        android:layout_alignTop="@+id/approvalCompanyName"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/approvalPriorityStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -65,7 +65,7 @@
         android:text="TextView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/approvalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -75,11 +75,11 @@
         android:text="Approve" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/rejectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button2"
+        android:layout_alignTop="@+id/approvalButton"
         android:layout_marginEnd="48dp"
         android:background="@android:color/holo_red_dark"
         android:text="Reject" />

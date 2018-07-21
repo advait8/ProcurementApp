@@ -1,6 +1,7 @@
 package edu.itu.priyanka.procurementappv2.firstscreen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -13,20 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.itu.priyanka.procurementappv2.R;
+import edu.itu.priyanka.procurementappv2.secondscreen.SecondActivity;
 
 public class MainItemAdapter extends BaseAdapter {
     private Context mContext;
     private List<MainModel> itemList = new ArrayList<>();
+
     public MainItemAdapter(@NonNull Context context) {
         setupMainItemList();
         mContext = context;
     }
 
     private void setupMainItemList() {
-        MainModel myApprovalItem = new MainModel("MY APPROVALS", "22" , "4 PAST DUE", "11 PENDING");
-        MainModel myReceiptsItem = new MainModel("MY RECEIPTS", "77" , "6 PAST DUE", "");
-        MainModel myActivityItem = new MainModel("MY ACTIVITY", "66" , "", "");
-        MainModel shopNowItem = new MainModel("", "SHOP NOW" , "CLICK HERE", "");
+        MainModel myApprovalItem = new MainModel("MY APPROVALS", "22", "4 PAST DUE", "11 PENDING");
+        MainModel myReceiptsItem = new MainModel("MY RECEIPTS", "77", "6 PAST DUE", "");
+        MainModel myActivityItem = new MainModel("MY ACTIVITY", "66", "", "");
+        MainModel shopNowItem = new MainModel("", "SHOP NOW", "CLICK HERE", "");
 
         itemList.add(myApprovalItem);
         itemList.add(myReceiptsItem);
@@ -52,8 +55,8 @@ public class MainItemAdapter extends BaseAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
-        if(listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.main_listview_item,parent,false);
+        if (listItem == null)
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.main_listview_item, parent, false);
 
         MainModel currentItem = itemList.get(position);
 
@@ -68,6 +71,16 @@ public class MainItemAdapter extends BaseAdapter {
 
         TextView pendingTextView = listItem.findViewById(R.id.pendingTextView);
         pendingTextView.setText(currentItem.getPending());
+
+        if (currentItem.getHeader().equalsIgnoreCase("MY APPROVALS")) {
+            listItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent secondActivityIntent = new Intent(mContext,SecondActivity.class);
+                    mContext.startActivity(secondActivityIntent);
+                }
+            });
+        }
 
         return listItem;
 

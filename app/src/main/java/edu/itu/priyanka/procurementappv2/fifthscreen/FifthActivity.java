@@ -12,7 +12,7 @@ import edu.itu.priyanka.procurementappv2.R;
 import edu.itu.priyanka.procurementappv2.firstscreen.MainActivity;
 
 public class FifthActivity extends AppCompatActivity {
-    private TextView quantity, price;
+    private TextView quantity, price,  description;
     private Button submitButton;
 
     @Override
@@ -22,11 +22,12 @@ public class FifthActivity extends AppCompatActivity {
 
         quantity = findViewById(R.id.editText);
         price = findViewById(R.id.editText2);
+        description = findViewById(R.id.editText4);
         submitButton = findViewById(R.id.button5);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(quantity.getText()) && !TextUtils.isEmpty(price.getText())) {
+                if (!TextUtils.isEmpty(quantity.getText()) && !TextUtils.isEmpty(price.getText()) && !TextUtils.isEmpty(description.getText())) {
                     Intent homescreenIntent = new Intent(FifthActivity.this, MainActivity.class);
                     startActivity(homescreenIntent);
                     finish();

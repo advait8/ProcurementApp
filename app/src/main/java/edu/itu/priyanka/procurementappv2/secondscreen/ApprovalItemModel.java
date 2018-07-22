@@ -4,15 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ApprovalItemModel implements Parcelable {
-    private String approvalId, approvalAmount, approvalDate, approvalCurrency, approvalCompany, approvalPriority;
+    private String approvalId, approvalAmount, approvalDate, approvalCurrency, approvalCompany, approvalPriority, approvalStatus;
 
-    public ApprovalItemModel(String approvalId, String approvalAmount, String approvalDate, String approvalCurrency, String approvalCompany, String approvalPriority) {
+    public ApprovalItemModel(String approvalId, String approvalAmount, String approvalDate, String approvalCurrency, String approvalCompany, String approvalPriority, String approvalStatus) {
         this.approvalId = approvalId;
         this.approvalAmount = approvalAmount;
         this.approvalDate = approvalDate;
         this.approvalCurrency = approvalCurrency;
         this.approvalCompany = approvalCompany;
         this.approvalPriority = approvalPriority;
+        this.approvalStatus = approvalStatus;
     }
 
     protected ApprovalItemModel(Parcel in) {
@@ -22,6 +23,7 @@ public class ApprovalItemModel implements Parcelable {
         approvalCurrency = in.readString();
         approvalCompany = in.readString();
         approvalPriority = in.readString();
+        approvalStatus = in.readString();
     }
 
     public static final Creator<ApprovalItemModel> CREATOR = new Creator<ApprovalItemModel>() {
@@ -60,6 +62,10 @@ public class ApprovalItemModel implements Parcelable {
         return approvalPriority;
     }
 
+    public String getApprovalStatus() {
+        return approvalStatus;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -73,5 +79,6 @@ public class ApprovalItemModel implements Parcelable {
         dest.writeString(approvalCurrency);
         dest.writeString(approvalCompany);
         dest.writeString(approvalPriority);
+        dest.writeString(approvalStatus);
     }
 }

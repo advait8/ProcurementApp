@@ -25,11 +25,11 @@ public class ApprovalListAdapter extends BaseAdapter {
     }
 
     private void setupApprovalList() {
-        ApprovalItemModel approvalItemModel1 = new ApprovalItemModel("n100001", "2450", "05-16-2018", "$ USD", "Best Company", "High");
-        ApprovalItemModel approvalItemModel2 = new ApprovalItemModel("n100002", "560", "02-12-2018", "$ USD", "Best Company", "High");
-        ApprovalItemModel approvalItemModel3 = new ApprovalItemModel("n100003", "2100", "10-16-2017", "$ USD", "Best Company", "High");
-        ApprovalItemModel approvalItemModel4 = new ApprovalItemModel("n100004", "2090", "05-13-2017", "$ USD", "Best Company", "High");
-        ApprovalItemModel approvalItemModel5 = new ApprovalItemModel("n100005", "5640", "02-17-2017", "$ USD", "Best Company", "High");
+        ApprovalItemModel approvalItemModel1 = new ApprovalItemModel("PR100001", "2450", "05-16-2018", "$ USD", "Best Company", "High", "Past Due");
+        ApprovalItemModel approvalItemModel2 = new ApprovalItemModel("PR100002", "560", "02-12-2018", "$ USD", "Best Company", "High", "Past Due");
+        ApprovalItemModel approvalItemModel3 = new ApprovalItemModel("PR100003", "2100", "10-16-2017", "$ USD", "Best Company", "High", "Past Due");
+        ApprovalItemModel approvalItemModel4 = new ApprovalItemModel("PR100004", "2090", "05-13-2017", "$ USD", "Best Company", "High", "Pending");
+        ApprovalItemModel approvalItemModel5 = new ApprovalItemModel("PR100005", "5640", "02-17-2017", "$ USD", "Best Company", "High", "Pending");
 
         approvalItemModelList.add(approvalItemModel1);
         approvalItemModelList.add(approvalItemModel2);

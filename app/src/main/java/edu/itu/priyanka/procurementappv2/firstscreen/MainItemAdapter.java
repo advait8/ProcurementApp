@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.itu.priyanka.procurementappv2.R;
+import edu.itu.priyanka.procurementappv2.fourthscreen.FourthActivity;
 import edu.itu.priyanka.procurementappv2.secondscreen.SecondActivity;
 
 public class MainItemAdapter extends BaseAdapter {
@@ -78,6 +79,16 @@ public class MainItemAdapter extends BaseAdapter {
                 public void onClick(View v) {
                     Intent secondActivityIntent = new Intent(mContext,SecondActivity.class);
                     mContext.startActivity(secondActivityIntent);
+                }
+            });
+        }
+
+        if (currentItem.getHeader().equalsIgnoreCase("MY RECEIPTS")) {
+            listItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent fourthActivityIntent = new Intent(mContext,FourthActivity.class);
+                    mContext.startActivity(fourthActivityIntent);
                 }
             });
         }
